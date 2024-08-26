@@ -8,8 +8,8 @@ export default function App() {
       <Text className="text-3xl text-center font-pmedium">AISync</Text>
       <Text className="text-base text-center">React Native Development</Text>
       <StatusBar style="auto" />
-      <Link href="/profile" style={{ color: "red" }}>
-        Go to Profile
+      <Link href="/home" style={{ color: "red" }}>
+        Home
       </Link>
     </View>
   );
