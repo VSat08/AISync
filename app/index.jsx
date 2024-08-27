@@ -2,12 +2,12 @@ import { StatusBar } from "expo-status-bar";
 import { Image, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { images } from "../constants";
-import CustomButton from "./components/CustomButton";
+import CustomButton from "../components/CustomButton";
 import { router } from "expo-router";
 
 export default function App() {
   return (
-    <SafeAreaView className="h-full bg-primary">
+    <SafeAreaView className="h-full bg-black">
       <ScrollView
         contentContainerStyle={{
           height: "100%",
@@ -26,15 +26,15 @@ export default function App() {
           />
 
           <View className="relative mt-5 ">
-            <Text className="text-5xl text-white font-bold ">Discover </Text>
-
-            <Text className="text-white text-xl ">
-              endless possibilities with
-            </Text>
-
-            <Text className="text-5xl text-secondary-200 font-bold ">
-              AISync
-            </Text>
+            <View className=" gap-2 ">
+              <Text className="text-3xl text-white font-bold ">Discover </Text>
+              <Text className="text-white text-lg ">
+                endless possibilities with
+              </Text>
+              <Text className="text-5xl text-secondary-200 font-bold ">
+                AISync
+              </Text>
+            </View>
             <Image
               source={images.path}
               className="w-[136px] h-[15px] absolute -bottom-2 -right-1 "
@@ -52,7 +52,7 @@ export default function App() {
           />
         </View>
       </ScrollView>
-      <StatusBar backgroundColor="#161622" style="light" />
+      <StatusBar backgroundColor="#000" style="light" />
     </SafeAreaView>
   );
 }
