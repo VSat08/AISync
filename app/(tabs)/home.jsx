@@ -1,37 +1,51 @@
-import { FlatList, Image, RefreshControl, Text, View } from "react-native";
-import React, { useState } from "react";
+import {
+  Alert,
+  FlatList,
+  Image,
+  RefreshControl,
+  Text,
+  View,
+} from "react-native";
+import React, { useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { images } from "../../constants";
 import SearchInput from "../../components/SearchInput";
 import Trending from "../../components/Trending";
 import EmptyState from "../../components/EmptyState";
+import { getAllPosts } from "../../lib/appwrite";
+import useAppwrite from "../../lib/useAppwrite";
+import VideoCard from "../../components/VideoCard";
 
 const Home = () => {
+  const { data: posts, refetch } = useAppwrite(getAllPosts);
+
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = async () => {
     setRefreshing(true);
 
     // recall posts
+    await refetch();
     setRefreshing(false);
   };
+
+  // console.log(posts);
   return (
     <SafeAreaView className="bg-black h-full">
       <FlatList
-        data={[{ id: 1 }, { id: 2 }, { id: 3 }]}
+        data={posts}
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => (
-          <Text className="text-white text-3xl">{item.id}</Text>
+          <VideoCard video={item} textStyle="text-white text-3xl" />
         )}
         ListHeaderComponent={() => (
           <View className="my-6 px-4 space-y-6 ">
-            <View className="flex justify-between items-start flex-row mb-6">
+            <View className="flex justify-between items-center flex-row mb-6">
               <View className="">
-                <Text className="text-white text-2xl font-pmedium">
-                  Welcome Back !
+                <Text className="text-white text-2xl font-psemibold">
+                  Welcome Sam
                 </Text>
-                <Text className="text-white text-3xl font-psemibold">Sam</Text>
               </View>
               <View className="mt-1.5">
                 <Image
