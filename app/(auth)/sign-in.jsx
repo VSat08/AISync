@@ -30,7 +30,6 @@ const SignIn = () => {
       //set it to global state...
       setUser(result);
       setIsLoggedIn(true);
-      Alert.alert("Success", "Siged in successfully");
       router.replace("/home");
     } catch (error) {
       Alert.alert("Error", error.message);

@@ -16,8 +16,11 @@ import EmptyState from "../../components/EmptyState";
 import { getAllPosts, getLatestPosts } from "../../lib/appwrite";
 import useAppwrite from "../../lib/useAppwrite";
 import VideoCard from "../../components/VideoCard";
+import { useGlobalContext } from "../../context/GlobalProvider";
 
 const Home = () => {
+  const { setIsLoggedIn, user, setUser } = useGlobalContext();
+
   const { data: posts, refetch } = useAppwrite(getAllPosts);
   const { data: latestPosts } = useAppwrite(getLatestPosts);
 
@@ -44,8 +47,8 @@ const Home = () => {
           <View className="my-6 px-4 space-y-6 ">
             <View className="flex justify-between items-center flex-row mb-6">
               <View className="">
-                <Text className="text-white text-3xl font-psemibold">
-                  Welcome Sam
+                <Text className="text-white text-2xl font-plight">
+                  Welcome <Text className="font-pbold ">{user?.username}</Text>
                 </Text>
               </View>
               <View className="mt-1.5">
