@@ -44,7 +44,7 @@ const Home = () => {
           <View className="my-6 px-4 space-y-6 ">
             <View className="flex justify-between items-center flex-row mb-6">
               <View className="">
-                <Text className="text-white text-2xl font-psemibold">
+                <Text className="text-white text-3xl font-psemibold">
                   Welcome Sam
                 </Text>
               </View>
@@ -56,7 +56,7 @@ const Home = () => {
                 />
               </View>
             </View>
-            <SearchInput placeholder="search your video topic" />
+            <SearchInput />
             <View className="w-full flex-1 pt-5 pb-8 ">
               <Text className="text-gray-100 text-2xl font-pregular mb-3">
                 Latest Videos
