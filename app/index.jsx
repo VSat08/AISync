@@ -29,19 +29,19 @@ export default function App() {
             resizeMode="contain"
           />
 
-          <View className="relative mt-5 ">
+          <View className="relative mt-5 flex-1 w-full px-4 ">
             <View className=" gap-2 ">
-              <Text className="text-3xl text-white font-bold ">Discover </Text>
-              <Text className="text-white text-lg ">
+              <Text className="text-4xl text-white font-bold  ">Discover</Text>
+              <Text className="text-white text-lg font-pmedium ">
                 endless possibilities with
               </Text>
-              <Text className="text-5xl text-secondary-200 font-bold ">
+              <Text className="text-5xl text-secondary-200 font-psemibold py-1.5 ">
                 AISync
               </Text>
             </View>
             <Image
-              source={images.path}
-              className="w-[136px] h-[15px] absolute -bottom-2 -right-1 "
+              source={images.robot}
+              className="w-[130px] h-[130px] absolute -bottom-2 right-0 "
               resizeMode="contain"
             />
           </View>
@@ -52,7 +52,7 @@ export default function App() {
           <CustomButton
             handlePress={() => router.push(`/sign-in`)}
             containerStyles="w-full mt-7"
-            title="Continue with Email"
+            title="Get Started"
           />
         </View>
       </ScrollView>
